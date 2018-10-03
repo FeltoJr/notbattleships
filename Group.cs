@@ -6,6 +6,11 @@ namespace notbattleships
     class Group
     {
         List<Member> members = new List<Member>();
+        string name;
+        public Group(string name)
+        {
+            this.name = name;
+        }
         
         public void AddMember(Member member)
         {
@@ -21,6 +26,7 @@ namespace notbattleships
         }
         public void DescribeMembers()
         {
+            Console.WriteLine($"These are the things in {name}:");
             foreach (Member member in members)
             {
                 member.Describe();

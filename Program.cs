@@ -6,6 +6,18 @@ namespace notbattleships
     {
         static void Main(string[] args)
         {
+            Group AA = new Group("AA branch 14");
+            AA.AddMember(new Member("Harold", 65, "attack helicopter", "win the gulf war"));
+            AA.AddMember(new Member("Kyo", 22, "catfish", "succeed"));
+            AA.AddMember(new Member("Harold2", 90, "goldfish", "be named Harold"));
+            AA.DescribeMembers();
+
+
+            Console.ReadKey();
+        }
+        static void OtherMethod()
+        {
+            
             Console.WriteLine("What is your name?");
             string stupidName = Console.ReadLine();
             Console.WriteLine($"Piss off {stupidName}");
@@ -29,9 +41,6 @@ namespace notbattleships
 
             Member aPerson = new Member(stupidName, soOld, politicallyCorrectGender, hopesAndDreams);
             aPerson.Describe();
-
-
-            Console.ReadKey();
         }
     }
 }
