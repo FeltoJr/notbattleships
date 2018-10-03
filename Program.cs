@@ -27,7 +27,7 @@ namespace notbattleships
             Console.WriteLine($"What are your hopes and dreams? Dicktwat. Sorry I mean {stupidName}");
             string hopesAndDreams = Console.ReadLine();
 
-            Person aPerson = new Person(stupidName, soOld, politicallyCorrectGender, hopesAndDreams);
+            Member aPerson = new Member(stupidName, soOld, politicallyCorrectGender, hopesAndDreams);
             aPerson.Describe();
 
 
