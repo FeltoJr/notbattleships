@@ -6,12 +6,32 @@ namespace notbattleships
     {
         static void Main(string[] args)
         {
-            Group AA = new Group("AA branch 14");
+            RandoMemberGenerator.Load("nouns.txt", "31K_verbs.txt", "adjectives.txt","names.txt");
+
+            // Name the group
+            Console.WriteLine("What the name of the group?");
+            Group AA = new Group(Console.ReadLine());
+
+            // Add default members
             AA.AddMember(new Member("Harold", 65, "attack helicopter", "win the gulf war"));
             AA.AddMember(new Member("Kyo", 22, "catfish", "succeed"));
             AA.AddMember(new Member("Harold2", 90, "goldfish", "be named Harold"));
-            AA.DescribeMembers();
+            AA.AddMember(RandoMemberGenerator.Reroll());
+            AA.AddMember(RandoMemberGenerator.Reroll());
+            AA.AddMember(RandoMemberGenerator.Reroll());
+            AA.AddMember(RandoMemberGenerator.Reroll());
+            AA.AddMember(RandoMemberGenerator.Reroll());
+           
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("1) Add a member");
+            Console.WriteLine("2) Report a death");
+            Console.WriteLine("3) List members");
+            Console.WriteLine("4) Make shit up");
+            Console.WriteLine("5) Russian roulette");
 
+            Console.ReadKey();
+
+            AA.DescribeMembers();
 
             Console.ReadKey();
         }
