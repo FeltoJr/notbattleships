@@ -67,6 +67,7 @@ namespace notbattleships
                 {
                     Console.WriteLine("Bye!");
                     doThing = false;
+                    Console.ReadKey();
                 }
 
             }
