@@ -32,5 +32,13 @@ namespace notbattleships
                 member.Describe();
             }
         }
+        public Member RussianRoulette()
+        {
+            Random gun = new Random();
+            int boolett = gun.Next(members.Count);
+            Member victim = members[boolett];
+            members.RemoveAt(boolett);
+            return victim;
+        }
     }
 }
