@@ -36,8 +36,43 @@ namespace notbattleships
             Console.WriteLine("5) Russian roulette");
 
             int option = int.Parse(Console.ReadLine());
-            switch (option) {
+            switch (option) 
+                {
                 case 1:
+                    AA.AddMember(OptionOne());
+                    break;
+                case 2:
+                    Console.WriteLine("I am option 2. I don't work yet!");
+                    break;
+                case 3:
+                    AA.DescribeMembers();
+                    break;
+                case 4:
+                    AA.AddMember(RandoMemberGenerator.Reroll());
+                    Console.WriteLine("Someone got added!");
+                    break;
+                case 5:
+                    Console.WriteLine("Bang bang!");
+                    break;
+                    
+                default:
+                    Console.WriteLine("I am not an option :(");
+                    break;
+                }
+           
+
+                Console.WriteLine("Say 'exit' to exit");
+                string input = Console.ReadLine();
+                if (input == "exit") 
+                {
+                    Console.WriteLine("Bye!");
+                    doThing = false;
+                }
+
+            }
+        }
+        static Member OptionOne()
+        {
                     Console.WriteLine("What is their name?");
                     string stupidName = Console.ReadLine();
                     Console.WriteLine($"How old is {stupidName}?");
@@ -57,42 +92,8 @@ namespace notbattleships
                     string politicallyCorrectGender = Console.ReadLine();
                     Console.WriteLine($"What are {stupidName}'s hopes and dreams?");
                     string hopesAndDreams = Console.ReadLine();
+                    return new Member(stupidName, soOld, politicallyCorrectGender, hopesAndDreams);
 
-                    AA.AddMember(new Member(stupidName, soOld, politicallyCorrectGender, hopesAndDreams));
-                    break;
-                case 2:
-                    Console.WriteLine("I am option 2. I don't work yet!");
-                    break;
-                case 3:
-                    AA.DescribeMembers();
-                    break;
-                case 4:
-                    AA.AddMember(RandoMemberGenerator.Reroll());
-                    Console.WriteLine("Someone got added!");
-                    break;
-                case 5:
-                    Console.WriteLine("Bang bang!");
-                    break;
-                    
-                default:
-                    Console.WriteLine("I am not an option :(");
-                    break;
-                    }
-
-            
-            
-            
-           
-                Console.WriteLine("Say 'exit' to exit");
-                string input = Console.ReadLine();
-                if (input == "exit") 
-                {
-                    Console.WriteLine("Bye!");
-                    doThing = false;
-                }
-            Console.ReadKey();
-            }
         }
-
     }
 }
