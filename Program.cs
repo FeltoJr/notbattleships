@@ -6,6 +6,9 @@ namespace notbattleships
     {
         static void Main(string[] args)
         {
+            bool doThing = true;
+
+            
             RandoMemberGenerator.Load("nouns.txt", "31K_verbs.txt", "adjectives.txt","names.txt");
 
             // Name the group
@@ -22,6 +25,9 @@ namespace notbattleships
             AA.AddMember(RandoMemberGenerator.Reroll());
             AA.AddMember(RandoMemberGenerator.Reroll());
            
+            while (doThing) 
+            {
+
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1) Add a member");
             Console.WriteLine("2) Report a death");
@@ -29,38 +35,64 @@ namespace notbattleships
             Console.WriteLine("4) Make shit up");
             Console.WriteLine("5) Russian roulette");
 
-            Console.ReadKey();
+            int option = int.Parse(Console.ReadLine());
+            switch (option) {
+                case 1:
+                    Console.WriteLine("What is their name?");
+                    string stupidName = Console.ReadLine();
+                    Console.WriteLine($"How old is {stupidName}?");
+                    int soOld = int.Parse(Console.ReadLine());
+                    Console.WriteLine("How are they still breathing?");
+                    float lifeExpectancy = (68.3f - soOld) * 52.1429f;
+                    if (lifeExpectancy > 0)  
+                    {                           
+                        Console.WriteLine($"They've only got {lifeExpectancy} weeks left!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"They're already dead! They died {- lifeExpectancy} weeks ago!");
+                    }
 
-            AA.DescribeMembers();
+                    Console.WriteLine("What are they?");
+                    string politicallyCorrectGender = Console.ReadLine();
+                    Console.WriteLine($"What are {stupidName}'s hopes and dreams?");
+                    string hopesAndDreams = Console.ReadLine();
 
-            Console.ReadKey();
-        }
-        static void OtherMethod()
-        {
+                    AA.AddMember(new Member(stupidName, soOld, politicallyCorrectGender, hopesAndDreams));
+                    break;
+                case 2:
+                    Console.WriteLine("I am option 2. I don't work yet!");
+                    break;
+                case 3:
+                    AA.DescribeMembers();
+                    break;
+                case 4:
+                    AA.AddMember(RandoMemberGenerator.Reroll());
+                    Console.WriteLine("Someone got added!");
+                    break;
+                case 5:
+                    Console.WriteLine("Bang bang!");
+                    break;
+                    
+                default:
+                    Console.WriteLine("I am not an option :(");
+                    break;
+                    }
+
             
-            Console.WriteLine("What is your name?");
-            string stupidName = Console.ReadLine();
-            Console.WriteLine($"Piss off {stupidName}");
-            Console.WriteLine($"How old are you, {stupidName}?");
-            int soOld = int.Parse(Console.ReadLine());
-            Console.WriteLine("How are you still breathing?");
-            float lifeExpectancy = (68.3f - soOld) * 52.1429f;
-            if (lifeExpectancy > 0)  
-            {                           
-                Console.WriteLine($"You've only got {lifeExpectancy} weeks left!");
+            
+            
+           
+                Console.WriteLine("Say 'exit' to exit");
+                string input = Console.ReadLine();
+                if (input == "exit") 
+                {
+                    Console.WriteLine("Bye!");
+                    doThing = false;
+                }
+            Console.ReadKey();
             }
-            else
-            {
-                Console.WriteLine($"You're already dead! You died {- lifeExpectancy} weeks ago!");
-            }
-
-            Console.WriteLine("What are you?");
-            string politicallyCorrectGender = Console.ReadLine();
-            Console.WriteLine($"What are your hopes and dreams? Dicktwat. Sorry I mean {stupidName}");
-            string hopesAndDreams = Console.ReadLine();
-
-            Member aPerson = new Member(stupidName, soOld, politicallyCorrectGender, hopesAndDreams);
-            aPerson.Describe();
         }
+
     }
 }
