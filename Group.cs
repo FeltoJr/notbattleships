@@ -6,10 +6,10 @@ namespace notbattleships
     class Group
     {
         List<Member> members = new List<Member>();
-        string name;
+        public string Name { get; private set; }
         public Group(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
         
         public void AddMember(Member member)
@@ -19,14 +19,13 @@ namespace notbattleships
         
         public void ListMembers()
         {
-            foreach (Member member in members)
-            {
-                Console.WriteLine(member.name);
-            }            
+            for (int i = 0; i < members.Count; i++) {
+                Console.WriteLine($"{i}: {members[i].name}");
+            }
         }
         public void DescribeMembers()
         {
-            Console.WriteLine($"These are the things in {name}:");
+            Console.WriteLine($"These are the things in {Name}:");
             foreach (Member member in members)
             {
                 member.Describe();
@@ -38,6 +37,13 @@ namespace notbattleships
             int boolett = gun.Next(members.Count);
             Member victim = members[boolett];
             members.RemoveAt(boolett);
+            return victim;
+        }
+        
+        public Member RemoveMember(int ded)
+        {
+            Member victim = members[ded];
+            members.RemoveAt(ded);
             return victim;
         }
     }

@@ -45,7 +45,13 @@ namespace notbattleships
                         AA.AddMember(InputMember());
                         break;
                     case 2:
-                        Console.WriteLine("I am option 2. I don't work yet!");
+                        Console.WriteLine($"These are all the members in {AA.Name}:");
+                        AA.ListMembers();
+                        Console.WriteLine("Who ded?");
+                        Console.Write("> ");
+                        int markedForDeath = NumberInput();
+                        Member deceased = AA.RemoveMember(markedForDeath);
+                        Console.WriteLine($"No! How will we survive without {deceased.name}!");
                         break;
                     case 3:
                         AA.DescribeMembers();
